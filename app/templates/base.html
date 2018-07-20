@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+@File   : base.html
+@Author : 吴鹰 ({__email})
+@Link   : 
+@Date   : 7/20/2018, 10:35:02 AM
+-->
+<html>
+<head>
+    {% if title %}
+    <title>{{ title }} - Microblog</title>
+    {% else %}
+    <title>Welcome to Microblog</title>
+    {% endif %}
+</head>
+<body>
+    <div> Microblog: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}
+    
+    {% endblock content %}
+</body>
+</html>
