@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!--
+@File   : 404.html.html
+@Author : 吴鹰 ({__email})
+@Link   : 
+@Date   : 7/30/2018, 9:21:15 PM
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>An unexpected error has occurred</h1>
+    <p>The administrator has been notified. Sorry for the inconvenience!</p>
+    <p><a href="{{ url_for('index') }}">Back</a></p>
+{% endblock content %}
