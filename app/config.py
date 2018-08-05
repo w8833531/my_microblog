@@ -17,3 +17,11 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = os.getenv('POSTS_PER_PAGE') or 3
+    MAIL_DEBUG = os.getenv('MAIL_DEBUG')
+    MAIL_SERVER = os.getenv('MAIL_SERVER') or 'localhost'
+    MAIL_PORT = os.getenv('MAIL_PORT') or 25
+    MAIL_USE_SSL = os.getenv('MAIL_USE_SSL').lower() == 'true'
+    MAIL_USE_TSL = os.getenv('MAIL_USE_TSL').lower() == 'true'
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
+    MAIL_SENDER = os.getenv('MAIL_SENDER')
