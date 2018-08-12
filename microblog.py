@@ -6,7 +6,7 @@
 # @Link   : 
 # @Date   : 7/19/2018, 2:39:58 PM
 
-from app import app, db
+from app import app, db, cli
 from app.models import User, Post
 
 @app.shell_context_processor
