@@ -26,3 +26,5 @@ class Config(object):
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
     MAIL_SENDER = os.getenv('MAIL_SENDER')
     LANGUAGES = ['zh', 'en']
+    YOUDAO_APPKEY = os.getenv('YOUDAO_APPKEY')
+    YOUDAO_SECRET_KEY = os.getenv('YOUDAO_SECRET_KEY')

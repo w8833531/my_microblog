@@ -6,11 +6,13 @@
 # @Link   : 
 # @Date   : 7/19/2018, 2:31:18 PM
 from datetime import datetime
-from flask import render_template, redirect, flash, url_for, request, g
+from guess_language import guess_language
+from flask import jsonify, render_template, redirect, flash, url_for, request, g
 from flask_babel import _, get_locale
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
 from app import app, db
+from app.translate import translate
 from app.models import User, Post
 from app.email import send_password_reset_email
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
@@ -20,7 +22,10 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, Re
 def index():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
+        language = guess_language(form.post.data)
+        if language == 'UNKNOWN' or len(language) > 5:
+            language = ''
+        post = Post(body=form.post.data, author=current_user, language=language)
         db.session.commit()
         flash(_('Your post is now live!'))
         return redirect(url_for('index'))
@@ -167,6 +172,14 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    return jsonify({'text': translate(
+                                request.form['text'],
+                                request.form['source_language'],
+                                request.form['dest_language'])})
+
 
 @app.route('/logout')
 def logout():
@@ -179,4 +192,5 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
-    g.locale = 'zh-CN' if str(get_locale()).startswith('zh') else str(get_locale())
+    g.locale_moment = 'zh-CN' if str(get_locale()).startswith('zh') else str(get_locale())
+    g.locale_language = 'zh' if str(get_locale()).startswith('zh') else str(get_locale())

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-12 00:05+0800\n"
+"POT-Creation-Date: 2018-08-16 14:39+0800\n"
 "PO-Revision-Date: 2018-08-11 19:44+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans_CN\n"
@@ -70,57 +70,65 @@ msgstr "发送"
 msgid "Request Password Reset"
 msgstr "发送重置密码请求"
 
-#: app/routes.py:25
+#: app/routes.py:29
 msgid "Your post is now live!"
 msgstr "你的内容已经发送完成！"
 
-#: app/routes.py:45
+#: app/routes.py:49
 msgid "Invalid username or password"
 msgstr "无效的用户名和密码"
 
-#: app/routes.py:64
+#: app/routes.py:68
 msgid "Congratulations, you are now a registered user!"
 msgstr "祝贺，你已经完成注册！"
 
-#: app/routes.py:90
+#: app/routes.py:94
 msgid "Your changes have been saved"
 msgstr "你的更改已经保存"
 
-#: app/routes.py:102
+#: app/routes.py:106
 #, python-format
 msgid "User  %(username)s not found."
 msgstr "用户 %(username)s 没有找到"
 
-#: app/routes.py:105
+#: app/routes.py:109
 msgid "You cannot follow yourself!"
 msgstr "你不能关注你自己"
 
-#: app/routes.py:109
+#: app/routes.py:113
 #, python-format
 msgid "You are following  %(username)s!"
 msgstr "你已经关注了 %(username)s！"
 
-#: app/routes.py:117
+#: app/routes.py:121
 #, python-format
 msgid "User %(username)s not found."
 msgstr "用户 %(username)s 没有找到"
 
-#: app/routes.py:120
+#: app/routes.py:124
 msgid "You cannot unfollow yourself!"
 msgstr "你不能关注你自己"
 
-#: app/routes.py:124
+#: app/routes.py:128
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "你没有关注 %(username)s 。"
 
-#: app/routes.py:150
+#: app/routes.py:154
 msgid "Check your email for the instructions to reset your password"
 msgstr "请查收重置密码邮件"
 
-#: app/routes.py:166
+#: app/routes.py:170
 msgid "Your password has been reset."
 msgstr "你的密码已经被重置。"
+
+#: app/translate.py:17
+msgid "Error: the translation service is not configured."
+msgstr "错误：翻译服务没有配置"
+
+#: app/translate.py:27
+msgid "Error: the translation service failed."
+msgstr "错误 ： 翻译服务出错"
 
 #: app/templates/404.html:12
 msgid "File Not Found"
@@ -142,6 +150,10 @@ msgstr "已经发送给系统管理员，很抱歉给你带来不便。"
 #, python-format
 msgid "said  %(when)s"
 msgstr "说： %(when)s"
+
+#: app/templates/_post.html:24
+msgid "Translate"
+msgstr "翻译"
 
 #: app/templates/base.html:13
 #, python-format
@@ -227,11 +239,11 @@ msgstr "最后登录时间: "
 
 #: app/templates/user.html:23
 msgid "followers,"
-msgstr ""
+msgstr "粉丝"
 
 #: app/templates/user.html:23
 msgid "following."
-msgstr ""
+msgstr "关注"
 
 #: app/templates/user.html:25
 msgid "Edit your porfile"
