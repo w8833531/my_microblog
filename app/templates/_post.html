@@ -19,14 +19,14 @@
             {{ _('said  %(when)s', when=moment(post.timestamp).fromNow()) }}:
             <br>
             <span id="post{{ post.id }}">{{ post.body }}</span>
-            {% if post.language and post.language != g.locale_language %}
+            {% if post.language != g.locale_language %}
                 <br><br>
                 <span id="translation{{ post.id }}">
                     <a href="javascript:translate(
                                 '#post{{ post.id }}',
                                 '#translation{{ post.id }}',
                                 '{{ post.language }}',
-                                '{{ g.locale }}');">{{ _('Translate') }}</a>
+                                '{{ g.locale_language }}');">{{ _('Translate') }}</a>
                 </span>
             {% endif %}
         </td>
