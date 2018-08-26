@@ -20,6 +20,7 @@ from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from elasticsearch import Elasticsearch
 
+
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()

@@ -26,8 +26,10 @@ class Config(object):
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
     MAIL_SENDER = os.getenv('MAIL_SENDER')
     LANGUAGES = ['zh', 'en']
+
     # YOUDAO translation setting
     YOUDAO_APPKEY = os.getenv('YOUDAO_APPKEY')
     YOUDAO_SECRET_KEY = os.getenv('YOUDAO_SECRET_KEY')
+
     # elasticsearch setting
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
