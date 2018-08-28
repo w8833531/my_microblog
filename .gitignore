@@ -7,7 +7,6 @@
 *.so
 
 # Packages
-Pipfile*
 __pycache__
 
 # Installer logs
