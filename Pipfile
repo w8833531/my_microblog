@@ -19,6 +19,8 @@ requests = "*"
 "md5hash" = "*"
 langdetect = "*"
 elasticsearch = "*"
+gunicorn = "*"
+"psycopg2" = "*"
 
 [dev-packages]
 "flake8" = "*"
