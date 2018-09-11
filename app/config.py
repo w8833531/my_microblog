@@ -16,6 +16,7 @@ class Config(object):
     SECRET_KEY = os.getenv('SECRET_KEY') or 'MY_VERY_VERY_HARD_SECRET_KEY'
     SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
     POSTS_PER_PAGE = os.getenv('POSTS_PER_PAGE') or 3
     MAIL_DEBUG = os.getenv('MAIL_DEBUG')
     MAIL_SERVER = os.getenv('MAIL_SERVER') or 'localhost'
