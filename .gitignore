@@ -1,7 +1,7 @@
 *.py[cod]
 
 # Private setting
-.env
+.env*
 
 # C extensions
 *.so
