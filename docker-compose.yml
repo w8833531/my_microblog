@@ -15,14 +15,14 @@ services:
     - mysqldb
     - elasticsearch
   # start elasticsearch service
+  # need elasticsearch version 6 above
+
   elasticsearch:
     #image: docker.elastic.co/elasticsearch/elasticsearch:6.4.0
     image: docker.elastic.co/elasticsearch/elasticsearch:6.0.1
     container_name: elasticsearch
-    environment:
-      - discovery.type=single-node
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    env_file:
+      - .env_online
     ulimits:
       memlock:
         soft: -1
@@ -31,7 +31,7 @@ services:
       - esdata:/usr/share/elasticsearch/data
   # start mysql service
   # map a 33060 port for Navicat connect 
-  # set mysql root password and host allow microblog service can connect from 172.17.0.0/24
+  # set mysql root password and host allow microblog service can connect from 172.0.0.0/8
   # https://dev.mysql.com/doc/refman/8.0/en/docker-mysql-more-topics.html#docker-persisting-data-configuration
   mysqldb:
     image: mysql/mysql-server:5.7
@@ -39,13 +39,8 @@ services:
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - "33060:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=Xyjrgss15
-      - MYSQL_ROOT_HOST=172.%.%.%
-      - MYSQL_DATABASE=microblog
-      # - MYSQL_DATABASE=postfix
-      # - MYSQL_USER=postfix
-      # - MYSQL_PASSWORD=asdf:LKJ
+    env_file:
+      - .env_online
     volumes:
       - mysqldata:/var/lib/mysql
 
