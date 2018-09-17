@@ -14,9 +14,9 @@ services:
     links:
     - mysqldb
     - elasticsearch
+
   # start elasticsearch service
   # need elasticsearch version 6 above
-
   elasticsearch:
     #image: docker.elastic.co/elasticsearch/elasticsearch:6.4.0
     image: docker.elastic.co/elasticsearch/elasticsearch:6.0.1
@@ -36,7 +36,9 @@ services:
   mysqldb:
     image: mysql/mysql-server:5.7
     container_name: mysqldb
+    # Chinese support
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    # export 33060 port for manage outside
     ports:
       - "33060:3306"
     env_file:
